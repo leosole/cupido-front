@@ -1,28 +1,72 @@
 import Button from '@material-ui/core/Button';
 import Input from "@material-ui/core/Input";
+import axios from 'axios';
+import React from "react";
 
-import { useForm } from "react-hook-form";
+export default class SendMessageForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      message: '',
+      name: ''
+    };
+  }
+  onSubmit = (event) => {
+    event.preventDefault();
+    console.log(event); 
+    const data = {
+      name: this.state.name,
+      email: this.state.email,
+      message: this.state.message
+    }
+    
+    const options = {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body : JSON.stringify(data)
+    }
 
-function ViewMessagesForm() {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+    try{
+      axios.post(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/`, options) 
+        .then(res => {
+          console.log(res.data)
+        }
+      )
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+          console.log(error.request);
+      } else {
+          console.log('Error', error.message);
+      }
+      console.log(error);
+    }
+  }
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  handleChange = (event) => {
+    event.preventDefault();
+    this.setState({[event.target.name]: event.target.value});
+  }
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label> Nome</label>
-      <Input placeholder="Nome do crush" {...register("name", { required: true })} />
-      <label> E-mail</label>
-      <Input type="email" placeholder="E-mail do crush"{...register("email", { required: true })} />
-      <label> Mensagem</label>
-      <Input placeholder="Mensagem"{...register("message", { required: true })} />
-      {errors.exampleRequired && <span>Esqueceu desse campo!</span>}
-      <Button type="submit">
-        Enviar
-      </Button>
-    </form>
-  );
+  render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <label> Nome</label>
+        <Input type="text" placeholder="Nome do crush" name="name" onChange={this.handleChange} />
+        <label> E-mail</label>
+        <Input type="email" placeholder="E-mail do crush" name="email" onChange={this.handleChange} />
+        <label> Mensagem</label>
+        <textarea name="message" onChange={this.handleChange} />
+        <Button type="submit">
+          Enviar
+        </Button>
+      </form>
+    );  
+  }
 }
 
-export default ViewMessagesForm;

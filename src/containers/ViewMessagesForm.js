@@ -9,19 +9,33 @@ export default class ViewMessagesForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      messages: []
+      email: 'Seu e-mail',
+      messages: [],
     };
   }
   onSubmit = (event) => {
+    event.preventDefault();
     console.log(event); 
-    if (this.state.email.length > 4){
+    try{
       axios.get(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/email/`+this.state.email) 
         .then(res => {
-          const returned_messages = res.data; 
-          this.setState({ messages: returned_messages});
+          if(res.data){
+            const returned_messages = res.data; 
+            this.setState({ messages: returned_messages});
+          }
         }
       )
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+          console.log(error.request);
+      } else {
+          console.log('Error', error.message);
+      }
+      console.log(error);
     }
   }
 
