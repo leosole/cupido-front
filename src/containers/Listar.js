@@ -26,7 +26,7 @@ export default class Listar extends React.Component {
           <List>
           {this.props.messages.length > 0 ? (
             <div>
-              {this.props.messages.map(message => <Link key={message.id} to={"/visu/message?id="+message.id} value={message.id} onClick={() => this.chooseMessage(message.id)} >{message.message.substring(0,2)+'...'}</Link>)}
+              {this.props.messages.map(message => <Link key={message.id} to={"/visu/message?id="+message.id} value={message.id} onClick={() => this.chooseMessage(message.id)} >{message.message.substring(0,10)+'...'}</Link>)}
             </div>
           ) : (
             <div></div>

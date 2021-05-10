@@ -14,7 +14,6 @@ export default class SendMessageForm extends React.Component {
   }
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(event); 
     const data = {
       name: this.state.name,
       email: this.state.email,
@@ -23,7 +22,8 @@ export default class SendMessageForm extends React.Component {
     
     const options = {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin" : "*", 
       },
       body : JSON.stringify(data)
     }
@@ -31,7 +31,7 @@ export default class SendMessageForm extends React.Component {
     try{
       axios.post(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/`, options) 
         .then(res => {
-          console.log(res.data)
+          console.log(res)
         }
       )
     } catch (error) {
