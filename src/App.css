@@ -174,7 +174,7 @@ div.msg {
   background-color: #fafafa;
   width:304px;
   /* margin-right: 20px; */
-  margin-top: 40px;
+  margin-top: 26px;
   padding: 18px;
   float: right;
 }
@@ -182,7 +182,7 @@ div.msg {
 div.empty-msg {
   background-color: #fff;
   width:304px;
-  margin-top: 40px;
+  margin-top: 26px;
   padding: 18px;
   float: right;
 }
@@ -210,6 +210,11 @@ div.recebidas {
   font-weight: 500;
 }
 
+.recebidas div.list{
+  display: inline-block;
+  padding:6px;
+  background-color: #fafafa;
+}
 @media only screen and (max-width: 620px){
   div.recebidas{
     float:none;

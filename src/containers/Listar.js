@@ -37,7 +37,7 @@ export default class Listar extends React.Component {
         <HashRouter>
           <div className="dashboard">
             <div>
-              <MensagemID msg={this.state.chosen}/>
+              <MensagemID msg={this.state.chosen} messages={this.props.messages}/>
               <List>
               {this.props.messages.length > 0 ? (
                 <div className="recebidas">
@@ -70,7 +70,7 @@ export default class Listar extends React.Component {
   };
 }
 
-function MensagemID({ msg }) {
+function MensagemID({ msg, messages }) { 
   const date = new Date(msg.createdAt);
   const day = date.getDate();
   const month = date.getMonth();
@@ -80,7 +80,7 @@ function MensagemID({ msg }) {
   var resultDay = '';
   var resultFrom = '';
   var className = 'empty-msg'
-  if(day) {
+  if(messages.length>0 && day) {
     resultDay = 'Enviada dia '+day+'/'+month+'/'+year+', às '+hours+':'+minutes;
     resultFrom = 'de: Anônimo para: '+msg.name;
     className = 'msg'
@@ -88,7 +88,7 @@ function MensagemID({ msg }) {
   return (
     <div className={className}>
       <p className="data">{resultFrom}</p>
-      <p>{msg.message}</p>
+      <p>{messages.length>0?msg.message:''}</p>
       <p className="data"><i>{resultDay}</i></p>
     </div>
   );

@@ -77,7 +77,7 @@ export default class ViewMessagesForm extends React.Component {
               <div></div>
             )}
         </form>
-        <Listar messages={this.state.messages}/>  
+        <Listar messages={this.state.messages} />  
       </div>
     );
   }
