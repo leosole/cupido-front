@@ -9,7 +9,7 @@ function App() {
   return (
     <HashRouter>
       <Header />
-      <div className="App">
+      <div className="App">      
         <List className="menu">
               <NavLink to="/" activeClassName="current" exact><li>Enviar</li></NavLink>
               <NavLink to="/visu" activeClassName="current" exact><li>Receber</li></NavLink>
@@ -21,7 +21,7 @@ function App() {
       </div>
       <div id="footer">
         <footer>
-          <p>feito por: <a href="http://gta.ufrj.br/~sole">Leonardo Solé</a></p>
+          <p>feito por <a href="http://gta.ufrj.br/~sole">Leonardo Solé</a></p>
         </footer>
       </div>
     </HashRouter>

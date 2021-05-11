@@ -36,7 +36,7 @@ export default class SendMessageForm extends React.Component {
       axios.post(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/save`, options) 
         .then(res => {
           console.log(res);
-          this.setState({alert: 'Mensagem enviada', severity:"success"});
+          this.setState({alert: 'Mensagem salva! Se seu crush for cadastrado(a), ele vai receber um e-mail', severity:"success"});
         }
       )
     } catch (error) {

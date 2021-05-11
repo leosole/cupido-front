@@ -203,9 +203,14 @@ div.dashboard {
 div.recebidas {
   width: 280px;
   float: left;
+
+}
+.list a.selected:visited{
+  color: #ff5c5c;
+  font-weight: 500;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 620px){
   div.recebidas{
     float:none;
     margin:auto;
@@ -215,6 +220,7 @@ div.recebidas {
   div.msg {
     float:none;
     margin-top:40px;
+    width:100%;
   }
   div.list {
     clear:both;
@@ -234,7 +240,7 @@ div.recebidas {
   width: 100%;
   text-align: center;
   background-color: #fafafa;
-  font-size: 14px;
+  font-size: 12px;
 }
 #footer a {
   text-decoration: none;
@@ -260,7 +266,7 @@ div.recebidas {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ff5c5c;
 }
 
 @keyframes App-logo-spin {
@@ -271,5 +277,3 @@ div.recebidas {
     transform: rotate(360deg);
   }
 }
-
-
