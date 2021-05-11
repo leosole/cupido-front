@@ -10,9 +10,9 @@ function App() {
     <HashRouter>
       <Header />
       <div className="App">
-        <List>
-              <li><NavLink to="/">Enviar</NavLink></li>
-              <li><NavLink to="/visu">Receber</NavLink></li>
+        <List className="menu">
+              <NavLink to="/" activeClassName="current" exact><li>Enviar</li></NavLink>
+              <NavLink to="/visu" activeClassName="current" exact><li>Receber</li></NavLink>
         </List>
         <div className="content">
           <Route exact path="/" component={Enviar}/>

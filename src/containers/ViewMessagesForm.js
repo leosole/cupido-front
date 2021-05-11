@@ -1,5 +1,5 @@
 import Button from '@material-ui/core/Button';
-// import Input from "@material-ui/core/Input";
+import Input from "@material-ui/core/Input";
 // import { useForm } from "react-hook-form";
 import Listar from "./Listar"
 import React from "react";
@@ -47,12 +47,25 @@ export default class ViewMessagesForm extends React.Component {
   render(){
     return (
       <form onSubmit={this.onSubmit}>
-        <label> E-mail</label>
-        <input type="email" placeholder="Seu e-mail" name="email" onChange={this.handleChange} />
-        <Button type="submit">
-          Enviar
-        </Button>
+        <div className="field">
+          <label> E-mail</label>
+          <Input 
+            type="email" 
+            disableUnderline={true}
+            required={true}
+            // placeholder="Seu e-mail" 
+            name="email" onChange={this.handleChange} />
+        </div>
+        <div className="field">
+          <Button 
+            type="submit"
+            color="secondary"
+            variant="contained">
+            Enviar
+          </Button>
+        </div>
         <Listar messages={this.state.messages}/>
+        
       </form>
     );
   }
