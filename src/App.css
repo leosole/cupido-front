@@ -241,10 +241,15 @@ div.recebidas {
   text-align: center;
   background-color: #fafafa;
   font-size: 12px;
+  /* padding-top:14px; */
 }
 #footer a {
   text-decoration: none;
   color: #ff5c5c;
+}
+#footer p {
+  margin-top:22px;
+  margin-bottom:22px;
 }
 #root {
   min-height: 100vh; 
