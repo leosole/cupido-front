@@ -48,7 +48,7 @@ export default class Listar extends React.Component {
                         key={message.id} 
                         to={"/visu?id="+message.id} 
                         value={message.id} 
-                        className={this.state.chosen.id == message.id? "selected" : "not-selected"}
+                        className={this.state.chosen.id === message.id? "selected" : "not-selected"}
                         onClick={() => this.chooseMessage(message.id)} >
                           <div className="msg-preview">
                             {message.message.substring(0,10)+'...'}
