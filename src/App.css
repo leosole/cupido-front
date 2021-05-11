@@ -18,10 +18,11 @@ header {
 }
 
 .current li{
-  background-color: #111111;
+  background-color: #ff5c5c;
   color: white;
   text-decoration: none;
 }
+
 ul.menu {
   list-style-type: none;
   margin: 0;
@@ -38,17 +39,24 @@ ul.menu {
   padding: 16px;
   text-decoration: none;
   font-weight: 900;
-}
-
-.menu li:hover {
-  background-color: #222222;
-  color: white;
-  text-decoration: none;
+  transition: ease-in-out, background-color .15s ease-in-out;
 }
 
 .menu li:active {
   background-color: #000;
   color: #ff5c5c;
+  text-decoration: none;
+}
+
+.menu li:hover{
+  background-color: #222222;
+  color: white;
+  text-decoration: none;
+}
+
+.current li:hover{
+  background-color: #ff5c5c;
+  color: white;
   text-decoration: none;
 }
 
@@ -86,6 +94,7 @@ ul.menu {
   height: 100px;
   width: 220px;
   padding: 6px;
+  transition: ease-in-out, background-color .35s ease-in-out;
 }
 
 .field input:valid, .field textarea:valid {
@@ -96,6 +105,7 @@ ul.menu {
   width: 220px;
   padding: 6px;
   background-color: #fafafa;
+  transition: ease-in-out, background-color .35s ease-in-out;
 }
 
 .field input:focus, .field textarea:focus{
@@ -112,6 +122,13 @@ ul.menu {
 
 .field button:active {
   box-shadow: none;
+}
+
+.alert {
+  max-width: 400px;
+  margin:auto;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .list div {

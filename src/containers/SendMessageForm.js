@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button';
 import Input from "@material-ui/core/Input";
+import Alert from '@material-ui/lab/Alert';
 import axios from 'axios';
 import React from "react";
 import '../App.css';
@@ -10,7 +11,9 @@ export default class SendMessageForm extends React.Component {
     this.state = {
       email: '',
       message: '',
-      name: ''
+      name: '',
+      alert: '',
+      severity: ''
     };
   }
   onSubmit = (event) => {
@@ -32,10 +35,12 @@ export default class SendMessageForm extends React.Component {
     try{
       axios.post(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/save`, options) 
         .then(res => {
-          console.log(res)
+          console.log(res);
+          this.setState({alert: 'Mensagem enviada', severity:"success"});
         }
       )
     } catch (error) {
+      this.setState({alert: 'Erro ao enviar a mensagem', severity:"error"});
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
@@ -92,11 +97,13 @@ export default class SendMessageForm extends React.Component {
           type="submit"
           color="secondary"
           variant="contained">
-            Enviar
+            Vai, cupido!
           </Button>
+          <div className="alert">
+            <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+          </div>
         </div>
       </form>
     );  
   }
 }
-

@@ -1,6 +1,6 @@
 import Button from '@material-ui/core/Button';
 import Input from "@material-ui/core/Input";
-// import { useForm } from "react-hook-form";
+import Alert from '@material-ui/lab/Alert';
 import Listar from "./Listar"
 import React from "react";
 import axios from 'axios';
@@ -11,21 +11,25 @@ export default class ViewMessagesForm extends React.Component {
     this.state = {
       email: 'Seu e-mail',
       messages: [],
+      alert: '',
+      severity: ''
     };
   }
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(event); 
     try{
       axios.get(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/email/`+this.state.email) 
         .then(res => {
-          if(res.data){
+          if(res.data.length){
             const returned_messages = res.data; 
-            this.setState({ messages: returned_messages});
+            this.setState({ messages: returned_messages, alert: '', severity:""});
+          } else {
+            this.setState({ messages: [], alert: 'Nenhuma mensagem encontrada', severity:"warning"});
           }
         }
       )
     } catch (error) {
+      this.setState({ messages: [], alert: 'Erro ao obter mensagens', severity:"error"});
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
@@ -61,9 +65,16 @@ export default class ViewMessagesForm extends React.Component {
             type="submit"
             color="secondary"
             variant="contained">
-            Enviar
+            Ver mensagens
           </Button>
         </div>
+        {this.state.alert.length > 1 ? (
+          <div className="alert">
+            <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+          </div>
+          ):(
+            <div></div>
+          )}
         <Listar messages={this.state.messages}/>
         
       </form>
