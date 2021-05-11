@@ -61,53 +61,53 @@ export default class SendMessageForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <div className="field">
-          <label> Nome</label>
-          <Input 
-            type="text" 
-            // placeholder="Nome do crush" 
-            name="name" 
-            disableUnderline={true}
-            required
-            onChange={this.handleChange} />
-          </div>
-        <div className="field">
-          <label> E-mail</label>
-          <Input 
-            type="email" 
-            // placeholder="E-mail do crush" 
-            name="email" 
-            disableUnderline={true}
-            onChange={this.handleChange}
-            required/>
-        </div>
-        <div className="field">
-          <label> Mensagem</label>
-          <div className="MuiInputBase-root MuiInput-root">
-            <textarea 
-              className="MuiInputBase-input"
-              name="message" 
+      <div className="show">
+        <form onSubmit={this.onSubmit}>
+          <div className="field">
+            <label> Nome</label>
+            <Input 
+              type="text" 
+              name="name" 
+              disableUnderline={true}
               required
               onChange={this.handleChange} />
           </div>
-        </div>
-        <div className="field">
-          <Button 
-          type="submit"
-          color="secondary"
-          variant="contained">
-            Vai, cupido!
-          </Button>
-          {this.state.alert.length > 1 ? (
-            <div className="alert">
-              <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+          <div className="field">
+            <label> E-mail</label>
+            <Input 
+              type="email" 
+              name="email" 
+              disableUnderline={true}
+              onChange={this.handleChange}
+              required/>
+          </div>
+          <div className="field">
+            <label> Mensagem</label>
+            <div className="MuiInputBase-root MuiInput-root">
+              <textarea 
+                className="MuiInputBase-input"
+                name="message" 
+                required
+                onChange={this.handleChange} />
             </div>
-            ):(
-              <div></div>
-            )}
-        </div>
-      </form>
+          </div>
+          <div className="field">
+            <Button 
+            type="submit"
+            color="secondary"
+            variant="contained">
+              Vai, cupido!
+            </Button>
+            {this.state.alert.length > 1 ? (
+              <div className="alert">
+                <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+              </div>
+              ):(
+                <div></div>
+              )}
+          </div>
+        </form>
+      </div>
     );  
   }
 }

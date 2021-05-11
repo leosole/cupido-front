@@ -1,6 +1,10 @@
 .App {
   text-align: center;
   /* max-width: 1000px; */
+
+}
+form{
+  overflow: visible;
 }
 
 h1 {
@@ -62,6 +66,11 @@ ul.menu {
 
 .field div {
   padding: 18px;
+  overflow: visible;
+}
+
+div.show {
+  overflow: visible;
 }
 
 .field label {
@@ -189,22 +198,26 @@ div.msg-time {
 div.dashboard {
   max-width: 640px;
   margin:auto;
-  height: 600px;
+  /* height: 600px; */
 }
 div.recebidas {
   width: 280px;
   float: left;
-  margin-top: 20px;;
 }
 
 @media only screen and (max-width: 600px){
   div.recebidas{
     float:none;
     margin:auto;
+    height: 100%;
+    margin-bottom: 60px;
   }
   div.msg {
     float:none;
     margin-top:40px;
+  }
+  div.list {
+    clear:both;
   }
 }
 
@@ -216,7 +229,8 @@ div.recebidas {
 
 #footer {
   position: absolute;
-  bottom: 0;
+  bottom: -20px;
+  height: 60px;
   width: 100%;
   text-align: center;
   background-color: #fafafa;
@@ -227,11 +241,11 @@ div.recebidas {
   color: #ff5c5c;
 }
 #root {
-  min-height: 100vh; /* will cover the 100% of viewport */
-  overflow: hidden;
+  min-height: 100vh; 
+  overflow: visible;
+  padding-bottom: 20px;
   display: block;
   position: relative;
-  /* padding-bottom: 40px; */
 }
 
 .App-header {

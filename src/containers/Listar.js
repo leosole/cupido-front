@@ -88,7 +88,7 @@ function MensagemID({ msg }) {
     <div className={className}>
       <p className="data">{resultFrom}</p>
       <p>{msg.message}</p>
-      <p className="data">{resultDay}</p>
+      <p className="data"><i>{resultDay}</i></p>
     </div>
   );
 }
