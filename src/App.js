@@ -19,6 +19,11 @@ function App() {
           <Route path="/visu" component={Visu}/>
         </div>
       </div>
+      <div id="footer">
+        <footer>
+          <p>feito por: <a href="http://gta.ufrj.br/~sole">Leonardo Solé</a></p>
+        </footer>
+      </div>
     </HashRouter>
   );
 }

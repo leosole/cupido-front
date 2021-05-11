@@ -7,7 +7,7 @@ export default class Listar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chosen: {}
+      chosen: {},
     };
   }
 
@@ -35,26 +35,34 @@ export default class Listar extends React.Component {
     return (
       <Router>
         <HashRouter>
-          <MensagemID msg={this.state.chosen}/>
-          <List>
-          {this.props.messages.length > 0 ? (
-            <div className="recebidas">
-              <p>Mensagens recebidas</p>
-              {this.props.messages.map(message => 
-                <div className="list">
-                  <Link 
-                    key={message.id} 
-                    to={"/visu?id="+message.id} 
-                    value={message.id} 
-                    onClick={() => this.chooseMessage(message.id)} >
-                      {message.message.substring(0,10)+'... enviada '+this.messageDate(message.createdAt)}
-                  </Link></div>)}
+          <div className="dashboard">
+            <div>
+              <MensagemID msg={this.state.chosen}/>
+              <List>
+              {this.props.messages.length > 0 ? (
+                <div className="recebidas">
+                  <p>Mensagens recebidas</p>
+                  {this.props.messages.map(message => 
+                    <div className="list" >
+                      <Link 
+                        key={message.id} 
+                        to={"/visu?id="+message.id} 
+                        value={message.id} 
+                        onClick={() => this.chooseMessage(message.id)} >
+                          <div className="msg-preview">
+                            {message.message.substring(0,10)+'...'}
+                          </div>
+                          <div className="msg-time">
+                            {'enviada '+this.messageDate(message.createdAt)}
+                          </div>
+                      </Link></div>)}
+                </div>
+              ) : (
+                <div></div>
+              )}
+              </List>
             </div>
-          ) : (
-            <div></div>
-          )}
-          </List>
-          
+          </div>
         </HashRouter>
       </Router>
     )
@@ -66,17 +74,19 @@ function MensagemID({ msg }) {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
+  const minutes = date.getMinutes();
+  const hours = date.getHours();
   var resultDay = '';
   var resultFrom = '';
-  var className = ''
+  var className = 'empty-msg'
   if(day) {
-    resultDay = 'Enviada dia '+day+'/'+month+'/'+year;
+    resultDay = 'Enviada dia '+day+'/'+month+'/'+year+', às '+hours+':'+minutes;
     resultFrom = 'de: Anônimo para: '+msg.name;
     className = 'msg'
   }
   return (
     <div className={className}>
-      <p>{resultFrom}</p>
+      <p className="data">{resultFrom}</p>
       <p>{msg.message}</p>
       <p className="data">{resultDay}</p>
     </div>

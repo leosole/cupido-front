@@ -50,34 +50,35 @@ export default class ViewMessagesForm extends React.Component {
   
   render(){
     return (
-      <form onSubmit={this.onSubmit}>
-        <div className="field">
-          <label> E-mail</label>
-          <Input 
-            type="email" 
-            disableUnderline={true}
-            required={true}
-            // placeholder="Seu e-mail" 
-            name="email" onChange={this.handleChange} />
-        </div>
-        <div className="field">
-          <Button 
-            type="submit"
-            color="secondary"
-            variant="contained">
-            Ver mensagens
-          </Button>
-        </div>
-        {this.state.alert.length > 1 ? (
-          <div className="alert">
-            <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <div className="field">
+            <label> E-mail</label>
+            <Input 
+              type="email" 
+              disableUnderline={true}
+              required
+              // placeholder="Seu e-mail" 
+              name="email" onChange={this.handleChange} />
           </div>
-          ):(
-            <div></div>
-          )}
-        <Listar messages={this.state.messages}/>
-        
-      </form>
+          <div className="field">
+            <Button 
+              type="submit"
+              color="secondary"
+              variant="contained">
+              Ver mensagens
+            </Button>
+          </div>
+          {this.state.alert.length > 1 ? (
+            <div className="alert">
+              <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+            </div>
+            ):(
+              <div></div>
+            )}
+        </form>
+        <Listar messages={this.state.messages}/>  
+      </div>
     );
   }
 }

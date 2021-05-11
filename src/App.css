@@ -134,11 +134,16 @@ ul.menu {
 .list div {
   display: inline-block;
   padding: 4px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
 }
 
 div.list {
-  padding:4px;
+  margin: auto;
+  width: 240px;
+  font-size: 14px;
 }
+
 .list a {
   text-decoration: none;
   color: black;
@@ -157,22 +162,76 @@ p.data {
 }
 
 div.msg {
-  /* border: 5px solid #ff5c5c; */
   background-color: #fafafa;
-  max-width: 400px;
-  margin: auto;
-  margin-top: 18px;;
-  padding: 18px;;
+  width:304px;
+  /* margin-right: 20px; */
+  margin-top: 40px;
+  padding: 18px;
+  float: right;
 }
 
-div.recebidas {
-  max-width: 400px;
-  margin: auto;
+div.empty-msg {
+  background-color: #fff;
+  width:304px;
+  margin-top: 40px;
+  padding: 18px;
+  float: right;
 }
+
+div.msg-preview {
+  float: left;
+}
+
+div.msg-time {
+  float: right;
+}
+
+div.dashboard {
+  max-width: 640px;
+  margin:auto;
+  height: 600px;
+}
+div.recebidas {
+  width: 280px;
+  float: left;
+  margin-top: 20px;;
+}
+
+@media only screen and (max-width: 600px){
+  div.recebidas{
+    float:none;
+    margin:auto;
+  }
+  div.msg {
+    float:none;
+    margin-top:40px;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #fafafa;
+  font-size: 14px;
+}
+#footer a {
+  text-decoration: none;
+  color: #ff5c5c;
+}
+#root {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  /* padding-bottom: 40px; */
 }
 
 .App-header {

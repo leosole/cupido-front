@@ -69,7 +69,7 @@ export default class SendMessageForm extends React.Component {
             // placeholder="Nome do crush" 
             name="name" 
             disableUnderline={true}
-            required="true"
+            required
             onChange={this.handleChange} />
           </div>
         <div className="field">
@@ -80,7 +80,7 @@ export default class SendMessageForm extends React.Component {
             name="email" 
             disableUnderline={true}
             onChange={this.handleChange}
-            required={true} />
+            required/>
         </div>
         <div className="field">
           <label> Mensagem</label>
@@ -88,7 +88,7 @@ export default class SendMessageForm extends React.Component {
             <textarea 
               className="MuiInputBase-input"
               name="message" 
-              required={true}
+              required
               onChange={this.handleChange} />
           </div>
         </div>
@@ -99,9 +99,13 @@ export default class SendMessageForm extends React.Component {
           variant="contained">
             Vai, cupido!
           </Button>
-          <div className="alert">
-            <Alert severity={this.state.severity}>{this.state.alert}</Alert>
-          </div>
+          {this.state.alert.length > 1 ? (
+            <div className="alert">
+              <Alert severity={this.state.severity}>{this.state.alert}</Alert>
+            </div>
+            ):(
+              <div></div>
+            )}
         </div>
       </form>
     );  
