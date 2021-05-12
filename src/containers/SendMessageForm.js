@@ -100,7 +100,17 @@ export default class SendMessageForm extends React.Component {
             
           </div>
         </form>
-        
+        {this.state.alert.length > 1 ? (
+              <div className="alert">
+                <Alert 
+                severity={this.state.severity} 
+                onClose={() => {this.setState({alert: '', severity:""})}}>
+                  {this.state.alert}
+                </Alert>
+              </div>
+              ):(
+                <div></div>
+              )}
       </div>
     );  
   }
