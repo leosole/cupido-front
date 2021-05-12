@@ -69,14 +69,18 @@ export default class ViewMessagesForm extends React.Component {
               Ver mensagens
             </Button>
           </div>
-          {this.state.alert.length > 1 ? (
-            <div className="alert">
-              <Alert severity={this.state.severity}>{this.state.alert}</Alert>
-            </div>
-            ):(
-              <div></div>
-            )}
         </form>
+        {this.state.alert.length > 1 ? (
+              <div className="alert">
+                <Alert 
+                severity={this.state.severity} 
+                onClose={() => {this.setState({alert: '', severity:""})}}>
+                  {this.state.alert}
+                </Alert>
+              </div>
+              ):(
+                <div></div>
+              )}
         <Listar messages={this.state.messages} />  
       </div>
     );

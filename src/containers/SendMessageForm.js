@@ -35,7 +35,6 @@ export default class SendMessageForm extends React.Component {
     try{
       axios.post(`https://hayumfy8e2.execute-api.sa-east-1.amazonaws.com/dev/todos/save`, options) 
         .then(res => {
-          console.log(res);
           this.setState({alert: 'Mensagem salva! Se seu crush for cadastrado(a), ele vai receber um e-mail', severity:"success"});
         }
       )
@@ -98,15 +97,10 @@ export default class SendMessageForm extends React.Component {
             variant="contained">
               Vai, cupido!
             </Button>
-            {this.state.alert.length > 1 ? (
-              <div className="alert">
-                <Alert severity={this.state.severity}>{this.state.alert}</Alert>
-              </div>
-              ):(
-                <div></div>
-              )}
+            
           </div>
         </form>
+        
       </div>
     );  
   }
