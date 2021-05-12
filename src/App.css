@@ -18,7 +18,16 @@ header img{
   max-width: 40px;
 }
 header {
-  padding-top: 20px;
+  padding-top: 18px;
+  padding-bottom: 14px;
+  /* background-color: #fff1ee; */
+}
+
+.content {
+  display: block;
+  padding: 1.4rem;
+  margin:auto;
+  /* background-image: url('bg.svg'); */
 }
 
 .current li{
@@ -43,7 +52,7 @@ ul.menu {
   padding: 16px;
   text-decoration: none;
   font-weight: 900;
-  transition: ease-in-out, background-color .15s ease-in-out;
+  transition: ease-in-out, all .3s ease-in-out;
 }
 
 .menu li:active {
@@ -99,26 +108,28 @@ div.show {
 .field textarea {
   border-width: 0;
   vertical-align: top;
-  background-color: rgb(250, 250, 250);
+  background-color: #fff1ee;
   height: 100px;
   width: 220px;
   padding: 6px;
-  transition: ease-in-out, background-color .35s ease-in-out;
+  transition: ease-in-out, background-color 1.2s ease-in-out;
 }
 
 .field input:valid, .field textarea:valid {
-  background-color: white;
+  background-color: #f7fff2;
 }
 
 .field input {
   width: 220px;
   padding: 6px;
-  background-color: #fafafa;
-  transition: ease-in-out, background-color .35s ease-in-out;
+  background-color: #fff1ee;
+  transition: ease-in-out, background-color 1.2s ease-in-out;
 }
 
 .field input:focus, .field textarea:focus{
-  background-color: rgb(253, 253, 253);
+  background-color: #fdfdfd;
+  
+
 }
 
 .field button {
@@ -126,7 +137,7 @@ div.show {
 }
 
 .field button:hover {
-  background-color: #ff5c5c;
+  background-color: #fc3e3e;
 }
 
 .field button:active {
@@ -171,9 +182,8 @@ p.data {
 }
 
 div.msg {
-  background-color: #fafafa;
+  background-color: #fff1ee;
   width:304px;
-  /* margin-right: 20px; */
   margin-top: 26px;
   padding: 18px;
   float: right;
@@ -198,7 +208,6 @@ div.msg-time {
 div.dashboard {
   max-width: 640px;
   margin:auto;
-  /* height: 600px; */
 }
 div.recebidas {
   width: 280px;
@@ -213,7 +222,8 @@ div.recebidas {
 .recebidas div.list{
   display: inline-block;
   padding:6px;
-  background-color: #fafafa;
+  margin-bottom: 8px;;
+  background-color: #fff1ee;
 }
 @media only screen and (max-width: 620px){
   div.recebidas{
@@ -244,9 +254,12 @@ div.recebidas {
   height: 60px;
   width: 100%;
   text-align: center;
-  background-color: #fafafa;
+  background-color: #fff1ee;
   font-size: 12px;
-  /* padding-top:14px; */
+  display: inline-block;
+}
+#footer svg{
+  height:10px;
 }
 #footer a {
   text-decoration: none;

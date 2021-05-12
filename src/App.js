@@ -4,6 +4,9 @@ import Enviar from "./containers/Enviar";
 import Visu from "./containers/Visu";
 import List from "@material-ui/core/List";
 import Header from './containers/Header';
+import {ReactComponent as Heart} from './favorite_black_24dp.svg';
+
+
 
 function App() {
   return (
@@ -21,7 +24,7 @@ function App() {
       </div>
       <div id="footer">
         <footer>
-          <p>feito por <a href="http://gta.ufrj.br/~sole">Leonardo Solé</a></p>
+          <p>feito por <a href="http://gta.ufrj.br/~sole">Leonardo Solé</a><Heart /></p>
         </footer>
       </div>
     </HashRouter>
