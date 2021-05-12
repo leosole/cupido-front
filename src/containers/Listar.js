@@ -1,6 +1,6 @@
 import MsgCard from './MsgCard'
 import React from 'react';
-import { BrowserRouter as Router, HashRouter, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter } from "react-router-dom";
 import List from "@material-ui/core/List";
 
 export default class Listar extends React.Component {
@@ -51,28 +51,4 @@ export default class Listar extends React.Component {
       </Router>
     )
   };
-}
-
-function MensagemID({ msg, messages }) { 
-  const date = new Date(msg.createdAt);
-  const day = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  const minutes = date.getMinutes();
-  const hours = date.getHours();
-  var resultDay = '';
-  var resultFrom = '';
-  var className = 'empty-msg'
-  if(messages.length>0 && day) {
-    resultDay = 'Enviada dia '+day+'/'+month+'/'+year+', às '+hours+':'+minutes;
-    resultFrom = 'de: Anônimo para: '+msg.name;
-    className = 'msg'
-  }
-  return (
-    <div className={className}>
-      <p className="data">{resultFrom}</p>
-      <p>{messages.length>0?msg.message:''}</p>
-      <p className="data"><i>{resultDay}</i></p>
-    </div>
-  );
 }
