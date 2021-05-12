@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import MsgCard from './MsgCard'
 import React from 'react';
 import { BrowserRouter as Router, HashRouter, NavLink } from "react-router-dom";
 import List from "@material-ui/core/List";
@@ -36,31 +36,14 @@ export default class Listar extends React.Component {
       <Router>
         <HashRouter>
           <div className="dashboard">
-            <div>
-              <MensagemID msg={this.state.chosen} messages={this.props.messages}/>
+            <div><br></br>
+              {/* <MensagemID msg={this.state.chosen} messages={this.props.messages}/> */}
               <List>
               {this.props.messages.length > 0 ? (
                 <div className="recebidas">
-                  <p>Mensagens recebidas</p>
-                  {this.props.messages.map(message => 
-                    <div className="list" >
-                      <NavLink 
-                        key={message.id} 
-                        to={"/visu?id="+message.id} 
-                        value={message.id} 
-                        className={this.state.chosen.id === message.id? "selected" : "not-selected"}
-                        onClick={() => this.chooseMessage(message.id)} >
-                          <div className="msg-preview">
-                            {message.message.substring(0,10)+'...'}
-                          </div>
-                          <div className="msg-time">
-                            {'enviada '+this.messageDate(message.createdAt)}
-                          </div>
-                      </NavLink></div>)}
+                  {this.props.messages.map(message => <MsgCard msg={message} />)}
                 </div>
-              ) : (
-                <div></div>
-              )}
+              ) : <div></div>}
               </List>
             </div>
           </div>

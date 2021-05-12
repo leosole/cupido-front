@@ -4,8 +4,7 @@ import Enviar from "./containers/Enviar";
 import Visu from "./containers/Visu";
 import List from "@material-ui/core/List";
 import Header from './containers/Header';
-import {ReactComponent as Heart} from './favorite_black_24dp.svg';
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
       </div>
       <div id="footer">
         <footer>
-          <p>feito por <a href="http://gta.ufrj.br/~sole">Leonardo Solé</a><Heart /></p>
+          <p>feito por <a href="http://gta.ufrj.br/~sole">Leonardo Solé </a><FavoriteIcon fontSize='inherit'/></p>
         </footer>
       </div>
     </HashRouter>
