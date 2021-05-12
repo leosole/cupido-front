@@ -37,7 +37,6 @@ export default class Listar extends React.Component {
         <HashRouter>
           <div className="dashboard">
             <div><br></br>
-              {/* <MensagemID msg={this.state.chosen} messages={this.props.messages}/> */}
               <List>
               {this.props.messages.length > 0 ? (
                 <div className="recebidas">
